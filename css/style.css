@@ -1,45 +1,96 @@
-html,body {
-  color: #fff;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
+.container-fluid  > .row{	
+    padding-left:5% !important;
+    padding-right:5% !important;
+}
+.card{ border: none; border-radius: 0; }
+.card .card-image img { border-radius: 0; }
+
+.tabs .tab a, .tabs .tab a:hover, .tabs .tab a.active{
+    color: purple;
+}
+.tabs .indicator{
+    background-color: transparent;
+}
+.tabs a.active{ border-bottom: 2px solid #702082 !important;}
+.tab-content{
+    margin-top: 40px;
+    min-height: 50vh;
+}
+.collection .collection-item.avatar{
+    min-height: 60px;
+}
+.collection .collection-item{
+    line-height: 2.5rem;
+}
+.card-follow{
+    position: absolute;
+    padding-top: 15px;
+    padding-bottom: 5px;
+    bottom: 0;
+    right: 0;
+    padding-left: 20px;
+    background-color: rgba(255, 255, 255, 0.8) ;
+    width: 100%;
+}
+.card .card-image .card-title{
+    top:0;
+}
+.badges-section{
+    padding: 40px;
+}
+.profile-photo{
+    padding: 15px;
+    background-color: rgb(238, 237, 237);
+    cursor: pointer;
 }
 
-.container-fluid {
-	background: url('../images/hero-lg.jpg');
-	background-size: cover;
-	width: 100%;
-	height: 100%;
+.profile-photo:hover #edit-photo-icon{
+    display: block !important;
 }
 
-.login {
-    height: 100%;
-    background-color: rgba(113, 25, 132, 0.85);
-    overflow-y: hidden;
+.badges-container img{
+    margin-right: 15px;
+    cursor: pointer;
+}
+.user-thumbnail{
+    border-radius:50%;
+    background-color:#fff;
+    color:#702082;
+    width:45px;
+    height:45px;
+    float:right;
+    text-align:center;
+    font-size:24px;
+    margin-top:5px;
+    padding-top:5px;
+    cursor:pointer;
 }
 
-form {
-	width: 100%;
+.footer-links li::before {
+    content: "\2022";
+    color: #00A0D2 ;
 }
 
-.form {
-	width: 100%;
-	margin: 0 auto;
+.footer-links a{
+    color:#00A0D2;
+    font-weight:lighter !important;
 }
-
-.jumbotron {
-    background: none;
+.btn-contactus{
+    background:#702082;
+    color:#fff;
+    font-weight:bolder;
+    margin-top:30px;
+    font-size:14px;
+    height:auto;
+    padding:10px 40px;
+    width:200px;
+    margin:auto;
 }
+.container-flex, container-fluid {
+    width: 90%;
+    margin:auto;
+  }
 
-.btn-primary {
-	background-color: #711984;
-	border: none;
-}
-
-@media only screen and (max-width: 414px) {
-	.login {
-    background-color: #711984;
-	}
+.container {
+    width: 98%;
 }
