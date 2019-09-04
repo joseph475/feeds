@@ -1,0 +1,638 @@
+<html>
+	<head>
+	 <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script src="./js/myjs.js"></script>
+	
+	<style type="text/css">
+		body{
+			background:#f6f6f6;
+		}
+		
+		.container-flex, container-fluid {
+		  width: 90%;
+		  margin:auto;
+		}
+		
+		.container-fluid  > .row{	
+			padding-left:5% !important;
+			padding-right:5% !important;
+		}
+
+		.container {
+		  width: 98%;
+		}
+
+		.logo {
+		  border-radius: 50%;
+		  background:#702082;
+		  width:60px;
+		  height:60px;
+		  padding:5px;
+		}
+
+		.text-muted a {
+		  color: #989898;
+		}
+
+		.text-muted a:hover {
+		  color: grey;
+		}
+
+		.fa a:active, a:hover, a:visited {
+		  text-decoration: none;
+		}
+
+		.card-img {
+		  display: block;
+		  width: 100%;
+		  height: auto;
+		}
+
+		.overlay {
+		  position: absolute;
+		  top: 0;
+		  bottom: 0;
+		  left: 0;
+		  right: 0;
+		  height: 100%;
+		  width: 100%;
+		  opacity: 0;
+		  transition: .2s ease;
+		  background-color: #008CBA;
+		}
+		
+		.card{
+			border-radius:0;
+		}
+
+		.card-pin:hover .overlay {
+		  opacity: .5;
+		  transition: ease .5s;
+		  background-color: #000000;  
+		  cursor: zoom-in;
+		}
+
+		.more {
+		  color: white;
+		  font-size: 20px;
+		  position: absolute;
+		  bottom: 0;
+		  right: 0;
+		  text-transform: uppercase;
+		  transform: translate(-20%, -20%);
+		  -ms-transform: translate(-50%, -50%);
+		}
+
+		.card-pin:hover .card-title {
+		  color: #ffffff;
+		  margin-top: 10px;
+		  text-align: center;
+		  font-size: 1.2em;
+		}
+
+		.card-pin:hover .more a {
+		  text-decoration: none;
+		  color: #ffffff;
+		}
+
+		.social {
+			position: relative;
+			transform: translateY(-50%);
+		}
+
+		.social .fa {
+		  margin: 0 3px;
+		}
+		
+		.feed-title{
+			font-size:20px;
+			font-weight:lighter;
+			padding:10px;
+		}
+		
+		.btn-readmore{
+			background:#702082;
+			border-radius:0;
+			color:#fff;
+			font-weight:bolder;
+			margin:10px;
+			float:right;
+			cursor:pointer;
+		}
+		.btn-readmore:hover, .btn-readmore:focus{
+			background:#792082;
+			color:#fff;
+		}
+		
+		.btn-contactus{
+			background:#702082;
+			color:#fff;
+			font-weight:bolder;
+			margin-top:30px;
+			font-size:14px;
+			height:auto;
+			padding:10px 40px;
+			width:200px;
+			margin:auto;
+		}
+		
+		.btn-contactus:hover, .btn-contactus:focus{
+			background:#792082;
+			color:#fff;
+		}
+		
+		.fix-to-top{
+			position:fixed;
+			top:0;
+			z-index:1000;
+		}
+		
+		.user-thumbnail{
+			border-radius:50%;
+			background-color:#fff;
+			color:#702082;
+			width:45px;
+			height:45px;
+			float:right;
+			text-align:center;
+			font-size:24px;
+			margin-top:5px;
+			padding-top:5px;
+			cursor:pointer;
+		}
+		
+		#keyword-label{
+			padding-left:20px;
+		}
+
+		.footer-links li::before {
+			content: "\2022";
+			color: #00A0D2 ;
+		}
+		
+		.footer-links a{
+			color:#00A0D2;
+			font-weight:lighter !important;
+		}
+		
+		.modal{
+			max-height:100%;
+			background:none;
+		}
+		
+		.modal-dialog{
+			max-width:70%;
+		}
+		
+		.modal-content{
+			max-height:90vh;
+			overflow-y:auto;
+		}
+		
+		.modal-content, .modal-body{
+			padding:0 !important;
+			border-radius:0;
+		}
+		
+		.modal-img{
+			width:100%;
+			max-height:50vh;
+			object-fit:cover;
+		}
+		
+		.modal-footer{
+			justify-content:space-between;
+		}
+		
+		.title-placeholder h4{
+			font-weight:lighter !important;
+		}
+		
+		.content-placeholder, .title-placeholder{
+			padding:20px 20px 0 20px;
+		}
+		
+		.btn-info{
+			background: #702082;
+		}
+		
+		.btn-info:hover, .btn-info:focus, .btn-info:active{
+			background: #792082 !important;
+		}
+		
+		.btn{
+		border-radius:0;
+		}
+		
+		.rating {
+		  unicode-bidi: bidi-override;
+		  direction: rtl;
+		  float:left;
+		  margin-left:10px;
+		}
+		.rating > span {
+		  display: inline-block;
+		  position: relative;
+		  width: 1.1em;
+		  font-size:20px;
+		  color:gold;
+		}
+		.rating > span:hover:before,
+		.rating > span:hover ~ span:before {
+		   content: "\2605";
+		   position: absolute;
+		}
+		
+		.modal-close{
+			position:absolute;
+			top:5px;
+			right:5px;
+		}
+		
+		.close{
+			color:#fff;
+		}
+		
+		.bookmark-btn{
+			float:right;
+			cursor:pointer;
+			color:maroon;
+			margin-top:-10px;
+			font-size:30px;
+		}
+
+		/* subscribe */
+		.wrap {
+		  /*height: 100vh;*/
+		  display: flex;
+		  justify-content: center;
+		  align-items: center;
+		}
+		.wrap div {
+		  display: flex;
+		  justify-content: center;
+		  align-items: center;
+		  margin: 8px;
+		}
+
+		.parent {
+		  position: relative;
+		}
+		.parent .sub {
+		  transition: all 0.5s ease-in-out;
+		}
+		.parent .thanks {
+		  font-size: 13px;
+		  transition: all 0.5s ease-in-out;
+		  position: absolute;
+		  top: -5px;
+		  left: 0;
+		  opacity: 0;
+		}
+
+		.text {
+		  font-size: 17px;
+		  /*color: #F5F5F5;*/
+		  color: #702082;
+		  font-family: 'Open Sans', sans-serif;
+		  letter-spacing: 2px;
+		  text-transform: uppercase;
+		  transition: all 0.5s ease-in-out;
+		}
+
+		#toggle {
+		  display: none;
+		}
+
+		.button {
+		  position: absolute;
+		  z-index: 999;
+		  width: 28px;
+		  height: 28px;
+		  background: #F9F9F9;
+		  border-radius: 10%;
+		  transition: all 0.5s ease-in-out;
+		  cursor: pointer;
+		}
+		.button:before {
+		  position: absolute;
+		  top: 13px;
+		  left: 6px;
+		  content: '';
+		  width: 16px;
+		  height: 2px;
+		  background: #21CDB2;
+		  transform: rotate(90deg);
+		}
+		.button:after {
+		  position: absolute;
+		  top: 13px;
+		  left: 6px;
+		  content: '';
+		  width: 16px;
+		  height: 2px;
+		  background: #21CDB2;
+		}
+
+		#toggle:checked ~ .nav {
+		  opacity: 1;
+		  transform: translateY(10%);
+		}
+
+		#toggle:checked ~ .button {
+		  transform: rotate(135deg);
+		  box-shadow: 0 0 0 0 transparent;
+		  border-radius: 100%;
+		}
+
+		#toggle:checked ~ .subbed {
+		  opacity: 1;
+		}
+
+		.modal-footer>:not(:first-child) {
+		  margin-left: 22.75rem;
+		}
+		.suggestions {
+			display: block;
+		}
+	</style>
+	</head>
+	<body id="feedspage">
+		<div class="container-fluid">
+			<div class="row" style="margin-bottom:0;background:#702082;">
+				<div class="col s12" style="color:#fff;">
+					<a href="index.html"><img src="./images/wtw_logo_hrz_rgb_wht.png" height="60"/></a>	
+				   	<a href="profile.html"><span class="user-thumbnail">U</span></a> 
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid filter-bar">
+			<div class="row" style="background:#fff;margin-bottom:0;box-shadow: 5px 5px 10px -4px rgba(0,0,0,.4); padding-top: 15px; display: flex; align-items: center;">
+			  <div class="input-field col-lg-3 my-1">
+				<select multiple id="cmbcountry">
+					<!-- <option disabled selected>Choose Country</option> -->
+					<option value="All">All</option>
+					<option value="us">United States</option>
+					<option value="ph">Philippines</option>
+					<option value="gb">Great Britain</option>
+				</select>
+				
+				<label style="padding-left: 15px" for="cmbcountry">Choose Country</label>
+			  </div>
+			  <div class="input-field col-lg-3 my-1">
+				<select multiple id="industry">
+				  <!-- <option value="" disabled  selected>Choose Industry</option> -->
+				  <option value="Medical">Medical</option>
+				  <option value="Technology">Technology</option>
+				  <option value="Law">Law</option>
+				  <option value="Dengue">Dengue</option>
+				  <option value="nutrient">nutrient</option>
+				</select>
+				<label style="padding-left: 15px" for="industry">Choose Industry</label>
+			  </div>
+				<div class="input-field col-lg-6">
+				  <input id="keyword" type="text" class="validate">
+				  <label for="keyword" id="keyword-label">Search...</label>
+				  <i class="material-icons left" style="position:absolute;right:5px;top:15px;cursor:pointer;">search</i>
+				</div>
+			</div>
+		</div>
+		<div class="container" style="max-width:99% !important;width:99% !important;padding-top:20px;">
+			<div class="container">
+				<div class="row">
+					<h2 class="text-uppercase font-weight-lighter title">Health and Benefits</h2>
+				</div>
+				<div class="row">
+					<div class="card-columns">
+					  <div class="card">
+						<div class="card-body">
+						<div class="row">
+							<div class="col-sm-9 col-xs-9">
+								<h4 class="card-title">Willis Towers Watson</h4>
+							</div>
+							<div class="col-sm-3 col-xs-3">
+								<img class="img-fluid logo" src="https://wtwbrandcentral.com/images/logo_1.svg">
+							</div>
+						</div>
+						  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ut sem a augue iaculis finibus hendrerit id eros. Donec egestas velit vel ex lacinia suscipit ut id arcu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer facilisis tortor non neque pharetra facilisis. Pellentesque sed vestibulum odio. Praesent ultrices ipsum vel lorem dapibus suscipit. Donec facilisis ipsum est, vitae bibendum dolor viverra vel.</p>
+						  <p class="card-text text-right"><small class="text-muted">
+						<span class="social">
+						  <a href="#!">
+							<i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i>
+						  </a>
+						  <a href="#!">
+							<i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i>
+						  </a>
+						  <a href="#!">
+							<i class="fa fa-pinterest-square fa-2x" aria-hidden="true"></i>
+						  </a>
+						  <a href="#!">
+							<i class="fa fa-instagram fa-2x" aria-hidden="true"></i>
+						  </a>
+						</span>          
+						  </small></p>
+						</div>
+					  </div>
+					  <div id="feedsresult">
+							<!--Feeds Loaded By JS here-->
+					  </div>
+					</div>    
+				</div>
+			</div>
+			
+		</div>
+		 
+		<div class="container-fluid">
+			<div class="row" style="margin-bottom:0;background:#333;min-height:250px;margin-top:50px;color:#fff;padding-top:50px;">
+				<div class="col-lg-2 offset-lg-5">
+					<h5 style="color:#8C8C8C;font-weight:lighter;">CATEGORY</h5>
+					<ul class="footer-links">
+						<li><a href="">&nbsp;&nbsp;Pay</a></li> 
+						<li><a href="">&nbsp;&nbsp;H&B</a></li>
+						<li><a href="">&nbsp;&nbsp;Risk</a></li>
+					</ul>
+				</div>
+				<div class="col-lg-2">
+					<h5>&nbsp;</h5>
+					<ul class="footer-links">
+						<li><a href="">&nbsp;&nbsp;Other links</a></li> 
+						<li><a href="">&nbsp;&nbsp;Other links</a></li>
+						<li><a href="">&nbsp;&nbsp;Other links</a></li>
+					</ul>
+				</div>
+				<div class="col-lg-2">
+					<h5 style="color:#8C8C8C ;font-weight:lighter;">CONTACT</h5>
+					<p style="font-weight:lighter !important;"><span style="color:#00A0D2;">General Inquiries</span><br>
+					(02) 000 0000<br>
+					email@willistowerswatson.com</p>
+					<br>
+					<button class="btn btn-contactus">CONTACT US</button> 
+				</div>
+				
+			</div>
+		</div>
+		<div class="modal fade" id="feedModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+			<div class="modal-content">
+			  <div class="modal-body">
+					<div class="modal-close">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="img-placeholder"></div>
+					<div class="title-placeholder"></div>
+					<div class="content-placeholder">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus volutpat consectetur. Phasellus volutpat dolor id turpis pharetra, in ornare eros molestie. Phasellus quis consectetur purus. Phasellus sodales vulputate diam aliquam tristique. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+						<p>Curabitur venenatis iaculis purus, et laoreet tellus consectetur quis. Aenean sit amet mi vulputate, tristique purus in, volutpat nisl. Vivamus mi urna ........</p>
+					</div>
+			  </div>
+			  <div class="modal-footer">	
+				<div class="rating">
+					<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+				</div>
+				<div class="wrap">
+					<div>
+					    <input type="checkbox" id="toggle" />
+					    <label class="button"  for="toggle" >
+					    </label>
+					  </div>
+					  <div class="parent">
+					    <div class="text sub">Subscribe Now </div>
+					    <div class="text thanks">Thanks for Subscribing </div>
+					</div>
+				</div>
+				<button type="button" class="btn btn-info float-right btn-redirect">Go to Article > </button>
+			  </div>
+			  <!--SUGGESTED REPORTS-->
+				    <div class="container suggestions mt-4" id="tourpackages-carousel">
+				    	  <div class="row">
+				    	  	<div class="col">
+				    	  		<h3>Suggested Reports</h3>
+				    	  </div>
+				    	  </div>
+					      <div class="row">   
+					        <div class="col-xs-18 col-sm-6 col-md-3">
+					          <div class="thumbnail">
+					            <a href="https://willistowerswatson.com/"  target="_blank">
+					              <img src="./images/report1.jpg" alt="" style="width: 100%;">
+					              <div class="caption">
+					                <h5 style="color:#702082">Sample Report 1</h5>
+					            </a>
+					                <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, soluta, eligendi doloribus sunt minus amet sit debitis repellat. Consectetur, culpa itaque odio similique suscipit</p>
+					                <p><a href="#" class="btn btn-info btn-xs" role="button">Button</a> <a href="#" class="btn btn-default btn-xs" role="button">Button</a></p> -->
+					            </div>
+					          </div>
+					        </div>
+
+					        <div class="col-xs-18 col-sm-6 col-md-3">
+					          <div class="thumbnail">
+					          	<a href="https://willistowerswatson.com/"  target="_blank">
+					            <img src="./images/report1.jpg" alt="" style="width: 100%;">
+					              <div class="caption">
+					                <h5 style="color:#702082">Sample Report 2</h5>
+					            </a>
+					                <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, soluta, eligendi doloribus sunt minus amet sit debitis repellat. Consectetur, culpa itaque odio similique suscipit</p>
+					                <p><a href="#" class="btn btn-info btn-xs" role="button">Button</a> <a href="#" class="btn btn-default btn-xs" role="button">Button</a></p> -->
+					              </div>
+					          </div>
+					        </div>
+
+					        <div class="col-xs-18 col-sm-6 col-md-3">
+					          <div class="thumbnail">
+					          	<a href="https://willistowerswatson.com/"  target="_blank">
+					            <img src="./images/report1.jpg" alt="" style="width: 100%;">
+					              <div class="caption">
+					                <h5 style="color:#702082">Sample Report 3</h5>
+					            </a>
+					                <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, soluta, eligendi doloribus sunt minus amet sit debitis repellat. Consectetur, culpa itaque odio similique suscipit</p>
+					                <p><a href="#" class="btn btn-info btn-xs" role="button">Button</a> <a href="#" class="btn btn-default btn-xs" role="button">Button</a></p> -->
+					            </div>
+					          </div>
+					        </div>
+
+					        <div class="col-xs-18 col-sm-6 col-md-3">
+					          <div class="thumbnail">
+					          	<a href="https://willistowerswatson.com/" target="_blank">
+					            <img src="./images/report1.jpg" alt="" style="width: 100%;">
+					              <div class="caption">
+					                <h5 style="color:#702082">Sample Report 4</h5>
+					            </a>
+					                <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, soluta, eligendi doloribus sunt minus amet sit debitis repellat. Consectetur, culpa itaque odio similique suscipit</p>
+					                <p><a href="#" class="btn btn-info btn-xs" role="button">Button</a> <a href="#" class="btn btn-default btn-xs" role="button">Button</a></p> -->
+					            </div>
+					          </div>
+					        </div>
+					        
+					      </div><!-- End row -->
+					      
+					    </div><!-- End container -->
+			</div>
+		  </div>
+		</div>
+		<script type="text/javascript">		
+			// M.AutoInit();
+		
+			// function getEverything(keywords=""){
+			// 	// var url = 'https://newsapi.org/v2/top-headlines?' +
+			// 	var url = 'https://newsapi.org/v2/everything?' +
+			// 	'q=' + keywords + '&' +
+			// 	// 'country=' + country + '&' +
+			// 	// 'from=2019-08-27&to=2019-08-27' + '&' +
+			// 	'apiKey=910a0733a0ec4a819e8d20cbb306cc5a';
+			// 	var req = new Request(url);
+			// 	fetch(req)
+			// 	.then(response => response.json())
+			// 		.then(data => {
+			// 			for (const article of data.articles) {
+			// 				console.log(article.source);
+			// 			}
+			// 	}) 
+			// }
+			
+			
+
+			function printNews(articles){
+				console.log(articles);
+			}
+
+			$(document).scroll(function() {
+			  var y = $(this).scrollTop();
+			  if (y > 60) {
+				$('.filter-bar').addClass('fix-to-top');
+			  } else {
+				$('.filter-bar').removeClass('fix-to-top');
+			  }
+			});
+			
+			function clickBookmark(){
+				$('.bookmark-btn').toggleClass('fa-bookmark-o');
+				$('.bookmark-btn').toggleClass('fa-bookmark');
+			};
+			
+			$('#feedModal').on('show.bs.modal', function (event) {
+			  var button = $(event.relatedTarget);
+			  var title = button.data('feedtitle');
+			  var text = button.data('content');
+			  var image = button.data('imglink');
+			  var url = button.data('url');
+			  var modal = $(this);
+			  
+			  modal.find('.btn-redirect').attr('redirect', url);
+			  modal.find('.modal-body .img-placeholder').html('<img class="modal-img" src="'+image+'"/>');
+			  modal.find('.modal-body .content-placeholder').html(`<p>${ text }</p>`);
+			  modal.find('.modal-body .title-placeholder').html('<h4>'+title+'<i class="fa fa-bookmark-o bookmark-btn" aria-hidden="true" onclick="clickBookmark()"></i></h4>');
+			})
+			$('.btn-redirect').on('click',function(){ window.open($(this).attr('redirect')  , '_blank') });
+		</script>
+	</body>
+</html>
